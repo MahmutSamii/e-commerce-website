@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #363738;
+}
+
+body {
+  background: var(--background);
+  color: black !important;
+  font-family: "Poppins", sans-serif;
+}
+
+.css-1qiat4j{
+  color: black !important;
+}
+ 
