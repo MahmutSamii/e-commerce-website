@@ -1,9 +1,11 @@
+'use client'
 import React from 'react';
+import HeroSection from "@/app/Dashboard/HeroSection/HeroSection";
 
-function Page(props) {
+function Page() {
     return (
         <>
-
+          <HeroSection/>
         </>
     );
 }

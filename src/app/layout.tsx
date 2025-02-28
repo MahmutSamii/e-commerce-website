@@ -1,22 +1,7 @@
 import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
-import theme from "@/app/theme";
-import {ThemeProvider} from '@mui/material/styles';
-import {CssBaseline} from "@mui/material";
-import Header from "../components/header/Header";
-import Head from "next/head";
-import Navbar from "../components/Navbar/navbar";
-
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
+import React from "react";
+import {MainLayout} from "@/templates/MainLayout/MainLayout";
 
 export const metadata: Metadata = {
     title: "E commerce website",
@@ -29,23 +14,6 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
-        <Head>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
-        </Head>
-        <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            suppressHydrationWarning
-        >
-        <ThemeProvider theme={theme}>
-            <CssBaseline/>
-            <Header/>
-            <Navbar/>
-            <main>{children}</main>
-        </ThemeProvider>
-        </body>
-        </html>
+        <MainLayout>{children}</MainLayout>
     );
 }
