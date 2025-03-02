@@ -135,7 +135,7 @@ const Footer = () => {
                     color: '#666'
                 }}>
                     <Typography variant="body2">
-                        © Copyright Mahmut Sami 2025. All right reserved
+                        © Copyright Talented Devs 2025. All right reserved
                     </Typography>
                 </Box>
             </Container>
