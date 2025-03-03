@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/macbook/e-commerce/src/components/Footer/Footer.tsx"],"sourcesContent":["import React from 'react';\nimport {Box} from \"@mui/material\";\n\nfunction Footer(props) {\n    return (\n        <Box sx={{\n            backgroundColor: '#000',\n            padding: '2rem',\n            display: 'flex',\n            justifyContent: 'space-around',\n            alignItems: 'center',\n            position: 'fixed',\n            bottom: 0,\n            left: 0,\n            right: 0,\n            zIndex: 1000,\n            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',\n            color: 'black',\n            fontSize: '14px',\n            fontWeight: 400,\n            lineHeight: '24px',\n            textTransform: 'uppercase',\n            height:'400px'\n        }}>\n\n        </Box>\n    );\n}\n\nexport default Footer;"],"names":[],"mappings":";;;;AACA;;;AAEA,SAAS,OAAO,KAAK;IACjB,qBACI,6LAAC,oLAAA,CAAA,MAAG;QAAC,IAAI;YACL,iBAAiB;YACjB,SAAS;YACT,SAAS;YACT,gBAAgB;YAChB,YAAY;YACZ,UAAU;YACV,QAAQ;YACR,MAAM;YACN,OAAO;YACP,QAAQ;YACR,WAAW;YACX,OAAO;YACP,UAAU;YACV,YAAY;YACZ,YAAY;YACZ,eAAe;YACf,QAAO;QACX;;;;;;AAIR;KAxBS;uCA0BM"}},
-    {"offset": {"line": 48, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
