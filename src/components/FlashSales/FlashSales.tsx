@@ -21,14 +21,14 @@ import {
     KeyboardArrowRight,
 } from '@mui/icons-material';
 
-const SectionDivider = styled(Divider)(({theme}) => ({
+const SectionDivider = styled(Divider)(({}) => ({
     margin: '48px 0',
     borderColor: '#E8E8E8',
     borderWidth: '1px',
     width: '100%',
 }));
 
-const ProductCard = styled(Card)(({theme}) => ({
+const ProductCard = styled(Card)(({}) => ({
     maxWidth: 270,
     position: 'relative',
     borderRadius: '4px',
@@ -38,7 +38,7 @@ const ProductCard = styled(Card)(({theme}) => ({
     },
 }));
 
-const DiscountBadge = styled(Box)(({theme, color}) => ({
+const DiscountBadge = styled(Box)(({color}) => ({
     position: 'absolute',
     top: 12,
     left: 12,
@@ -49,7 +49,7 @@ const DiscountBadge = styled(Box)(({theme, color}) => ({
     zIndex: 1,
 }));
 
-const IconWrapper = styled(Box)(({theme}) => ({
+const IconWrapper = styled(Box)(({}) => ({
     position: 'absolute',
     top: 12,
     right: 12,
@@ -59,7 +59,7 @@ const IconWrapper = styled(Box)(({theme}) => ({
     zIndex: 1,
 }));
 
-const StyledIconButton = styled(IconButton)(({theme}) => ({
+const StyledIconButton = styled(IconButton)(({}) => ({
     backgroundColor: 'white',
     padding: '8px',
     '&:hover': {
@@ -68,7 +68,7 @@ const StyledIconButton = styled(IconButton)(({theme}) => ({
     },
 }));
 
-const CartButton = styled(Button)(({theme}) => ({
+const CartButton = styled(Button)(({}) => ({
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -83,7 +83,7 @@ const CartButton = styled(Button)(({theme}) => ({
     },
 }));
 
-const TimerBox = styled(Box)(({theme}) => ({
+const TimerBox = styled(Box)(({}) => ({
     display: 'flex',
     alignItems: 'center',
     gap: '4px',
@@ -109,6 +109,8 @@ const FlashSales = ({
                         enableSlider = true,
                         cardsPerRow = 4,
                     }) => {
+    // Client/Server uyumsuzluğu önlemek için bir isClient state'i ekleyelim
+    const [isClient, setIsClient] = useState(false);
     const [currentTime, setCurrentTime] = useState({
         days: 3,
         hours: 23,
@@ -118,8 +120,14 @@ const FlashSales = ({
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedColors, setSelectedColors] = useState({});
 
+    // Sayfa yüklendiğinde isClient'ı true yap
     useEffect(() => {
-        if (showTimer) {
+        setIsClient(true);
+    }, []);
+
+    useEffect(() => {
+        // Sadece client tarafında ve isClient true olduğunda timer başlat
+        if (isClient && showTimer) {
             const timer = setInterval(() => {
                 setCurrentTime((prev) => {
                     if (prev.seconds > 0) {
@@ -137,7 +145,7 @@ const FlashSales = ({
 
             return () => clearInterval(timer);
         }
-    }, [showTimer]);
+    }, [showTimer, isClient]);
 
     const handleSlide = (direction) => {
         if (direction === 'left') {
@@ -169,7 +177,7 @@ const FlashSales = ({
                     <Typography variant="h4" color={'black'} fontWeight="600" pr={5}>
                         {title}
                     </Typography>
-                    {showTimer && (
+                    {showTimer && isClient && (
                         <>
                             <Stack spacing={1}>
                                 <Typography fontSize={'13px'} fontWeight={'bold'} variant="caption"
@@ -322,7 +330,7 @@ const FlashSales = ({
                                 )}
                             </Stack>
                             <Stack direction="row" spacing={1} alignItems="center">
-                                <Rating name="read-only" value={product.rating} readOnly/>
+                                <Rating name="read-only" value={product.rating} readOnly precision={0.5} />
                                 <Typography color="text.secondary">({product.reviews})</Typography>
                             </Stack>
                             {product.colors && (

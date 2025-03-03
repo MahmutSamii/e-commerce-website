@@ -19,7 +19,7 @@ import {
     Search as SearchIcon,
     FavoriteBorderOutlined as FavoriteIcon,
     ShoppingCartOutlined as ShoppingCartIcon,
-    Menu as MenuIcon, FavoriteBorderOutlined,
+    Menu as MenuIcon,
 } from '@mui/icons-material';
 import Link from 'next/link';
 

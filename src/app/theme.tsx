@@ -20,13 +20,7 @@ const theme = createTheme({
         text: {
             primary: '#FFFFFF',
             secondary: '#363738',
-        },
-        button: {
-            button1: '#47B486',
-            button2: '#DB4444',
-            hover1: '#E2B93B',
-            hover2: '#EB5757',
-        },
+        }
     },
     breakpoints: {
         values: {
@@ -35,10 +29,6 @@ const theme = createTheme({
             md: 900,
             lg: 1368,
             xl: 1536,
-            mobile: 0,
-            tablet: 768,
-            laptop: 900,
-            desktop: 1368,
         },
     },
 });

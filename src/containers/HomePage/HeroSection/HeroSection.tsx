@@ -14,7 +14,7 @@ import {
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const StyledListItem = styled(ListItem)(({theme}) => ({
+const StyledListItem = styled(ListItem)(({}) => ({
     padding: 0,
     color: 'black',
 }));

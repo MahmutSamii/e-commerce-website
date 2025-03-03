@@ -1,7 +1,7 @@
 import React from 'react';
 import FlashSales from "../../../components/FlashSales/FlashSales";
 
-function ProductSection(props) {
+function ProductSection() {
     const products = [
         {
             id: 1,

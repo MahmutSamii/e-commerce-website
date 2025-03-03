@@ -9,7 +9,7 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
-const SectionDivider = styled(Divider)(({ theme }) => ({
+const SectionDivider = styled(Divider)(({  }) => ({
     marginTop: '58px',
     marginBottom: '58px',
     marginLeft: '-12px',
@@ -18,7 +18,7 @@ const SectionDivider = styled(Divider)(({ theme }) => ({
     width: '100%'
 }));
 
-const CategoryBox = styled(Box)(({ theme, active }) => ({
+const CategoryBox = styled(Box)(({active }) => ({
     width: '170px',
     height: '145px',
     display: 'flex',

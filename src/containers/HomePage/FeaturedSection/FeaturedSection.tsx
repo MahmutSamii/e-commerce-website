@@ -132,7 +132,7 @@ const FeaturedSection = () => {
                                     }}
                                 >
                                     <Typography variant="h6" sx={{ mb: 1 }}>
-                                        Women's Collections
+                                        Women`&apos;`s Collections
                                     </Typography>
                                     <Typography variant="body2" sx={{ mb: 1 }}>
                                         Featured women collections that <br/> give you another vibe.

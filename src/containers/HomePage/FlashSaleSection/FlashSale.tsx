@@ -1,7 +1,7 @@
 import React from 'react';
 import FlashSales from "../../../components/FlashSales/FlashSales";
 
-function FlashSale(props) {
+function FlashSale() {
     const products = [
         {
             id: 1,
@@ -102,7 +102,7 @@ function FlashSale(props) {
             currentTime={currentTime}
             discountBadgeColor={'#DB4444'}
             showSlider
-            viewBtnOpen={true}
+            viewBtnOpen={false}
             viewBtnOpenColor={'#DB4444'}
             viewBtnOpenText={'View All'}
             viewBtnOpenTextColor={'white'}
