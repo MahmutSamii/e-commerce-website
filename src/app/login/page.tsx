@@ -54,7 +54,6 @@ const Login = () => {
                             <TextField
                                 fullWidth
                                 variant="standard"
-                                color="text.secondary"
                                 type="password"
                                 placeholder="Password"
                                 InputProps={{

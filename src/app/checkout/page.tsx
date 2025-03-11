@@ -29,7 +29,6 @@ const page = () => {
                             fullWidth
                             label="First Name"
                             variant="outlined"
-                            color={'primary.dark'}
                             required
                             sx={{
                                 backgroundColor: '#f8f8f8',
@@ -48,7 +47,6 @@ const page = () => {
                             fullWidth
                             label="Company Name"
                             variant="outlined"
-                            color={'primary.dark'}
                             sx={{
                                 backgroundColor: '#f8f8f8',
                                 '& .MuiOutlinedInput-root': {
@@ -66,7 +64,6 @@ const page = () => {
                             fullWidth
                             label="Street Address"
                             variant="outlined"
-                            color={'primary.dark'}
                             required
                             sx={{
                                 backgroundColor: '#f8f8f8',
@@ -85,7 +82,6 @@ const page = () => {
                             fullWidth
                             label="Apartment, floor, etc. (optional)"
                             variant="outlined"
-                            color={'primary.dark'}
                             sx={{
                                 backgroundColor: '#f8f8f8',
                                 '& .MuiOutlinedInput-root': {
@@ -103,7 +99,6 @@ const page = () => {
                             fullWidth
                             label="Town/City"
                             variant="outlined"
-                            color={'primary.dark'}
                             required
                             sx={{
                                 backgroundColor: '#f8f8f8',
@@ -123,7 +118,6 @@ const page = () => {
                             label="Phone Number"
                             variant="outlined"
                             required
-                            color={'primary.dark'}
                             sx={{
                                 backgroundColor: '#f8f8f8',
                                 '& .MuiOutlinedInput-root': {
@@ -143,7 +137,6 @@ const page = () => {
                             variant="outlined"
                             required
                             type="email"
-                            color={'primary.dark'}
                             sx={{
                                 backgroundColor: '#f8f8f8',
                                 '& .MuiOutlinedInput-root': {
@@ -228,11 +221,15 @@ const page = () => {
                                                 Bank
                                                 <Box sx={{display: 'flex', gap: 1, ml: 2}}>
                                                     <Image
+                                                        width={50}
+                                                        height={50}
                                                         src="/assets/png/visa.png"
                                                         alt="bKash"
                                                         style={{width: '50px', objectFit: 'contain'}}
                                                     />
                                                     <Image
+                                                        width={50}
+                                                        height={50}
                                                         src="/assets/png/master-card.png"
                                                         alt="Visa"
                                                         style={{width: '50px', objectFit: 'contain'}}
@@ -255,7 +252,6 @@ const page = () => {
                                     placeholder="Coupon Code"
                                     variant="outlined"
                                     size="small"
-                                    color={'black'}
                                     fullWidth
                                     sx={{
                                         backgroundColor: 'white',

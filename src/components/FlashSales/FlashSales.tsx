@@ -21,6 +21,42 @@ import {
     KeyboardArrowRight,
 } from '@mui/icons-material';
 
+interface Product {
+    id: number;
+    name: string;
+    image: string;
+    price: number;
+    oldPrice?: number;
+    rating: number;
+    reviews: number;
+    discount?: number;
+    colors?: string[];
+}
+
+interface FlashSalesProps {
+    subtitle?: string;
+    subtitleColor?: string;
+    title: string;
+    products: Product[];
+    showTimer?: boolean;
+    onAddToCart?: boolean;
+    btnOpen?: boolean;
+    viewBtnOpen?: boolean;
+    viewBtnOpenColor?: string;
+    viewBtnOpenText?: string;
+    viewBtnOpenTextColor?: string;
+    discountBadgeColor?: string;
+    discountBadgeText?: string;
+    enableSlider?: boolean;
+    cardsPerRow?: number;
+    currentTime?: {
+        days: number;
+        hours: number;
+        minutes: number;
+        seconds: number;
+    };
+}
+
 const SectionDivider = styled(Divider)(({}) => ({
     margin: '48px 0',
     borderColor: '#E8E8E8',
@@ -38,7 +74,7 @@ const ProductCard = styled(Card)(({}) => ({
     },
 }));
 
-const DiscountBadge = styled(Box)(({color}) => ({
+const DiscountBadge = styled(Box)<{ color?: string }>(({ color }) =>  ({
     position: 'absolute',
     top: 12,
     left: 12,
@@ -92,44 +128,39 @@ const TimerBox = styled(Box)(({}) => ({
     borderRadius: '4px',
 }));
 
-const FlashSales = ({
-                        subtitle,
-                        subtitleColor,
-                        title,
-                        products = [],
-                        showTimer = true,
-                        onAddToCart = true,
-                        btnOpen = true,
-                        viewBtnOpen = true,
-                        viewBtnOpenColor,
-                        viewBtnOpenText,
-                        viewBtnOpenTextColor,
-                        discountBadgeColor,
-                        discountBadgeText,
-                        enableSlider = true,
-                        cardsPerRow = 4,
-                    }) => {
-    // Client/Server uyumsuzluğu önlemek için bir isClient state'i ekleyelim
+const FlashSales: React.FC<FlashSalesProps> = ({
+                                                   subtitle,
+                                                   subtitleColor = 'black',
+                                                   title,
+                                                   products = [],
+                                                   showTimer = true,
+                                                   onAddToCart = true,
+                                                   btnOpen = true,
+                                                   viewBtnOpen = true,
+                                                   viewBtnOpenColor = '#DB4444',
+                                                   viewBtnOpenText = 'View All',
+                                                   viewBtnOpenTextColor = 'white',
+                                                   discountBadgeColor = '#DB4444',
+                                                   discountBadgeText,
+                                                   enableSlider = true,
+                                                   cardsPerRow = 4,
+                                                   currentTime
+                                               }) => {
     const [isClient, setIsClient] = useState(false);
-    const [currentTime, setCurrentTime] = useState({
-        days: 3,
-        hours: 23,
-        minutes: 19,
-        seconds: 56,
-    });
+    const [timer, setTimer] = useState(
+        currentTime || { days: 0, hours: 0, minutes: 0, seconds: 0 }
+    );
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [selectedColors, setSelectedColors] = useState({});
+    const [selectedColors, setSelectedColors] = useState<Record<number, string>>({});
 
-    // Sayfa yüklendiğinde isClient'ı true yap
     useEffect(() => {
         setIsClient(true);
     }, []);
 
     useEffect(() => {
-        // Sadece client tarafında ve isClient true olduğunda timer başlat
         if (isClient && showTimer) {
             const timer = setInterval(() => {
-                setCurrentTime((prev) => {
+                setTimer((prev) => {
                     if (prev.seconds > 0) {
                         return {...prev, seconds: prev.seconds - 1};
                     } else if (prev.minutes > 0) {
@@ -147,16 +178,16 @@ const FlashSales = ({
         }
     }, [showTimer, isClient]);
 
-    const handleSlide = (direction) => {
-        if (direction === 'left') {
-            setCurrentIndex((prev) => Math.max(prev - 1, 0));
-        } else {
-            setCurrentIndex((prev) => Math.min(prev + 1, Math.ceil(products.length / cardsPerRow) - 1));
-        }
+    const handleSlide = (direction: 'left' | 'right') => {
+        setCurrentIndex((prev) =>
+            direction === 'left'
+                ? Math.max(prev - 1, 0)
+                : Math.min(prev + 1, Math.ceil(products.length / cardsPerRow) - 1)
+        );
     };
 
-    const handleColorSelect = (productId, color) => {
-        setSelectedColors((prev) => ({...prev, [productId]: color}));
+    const handleColorSelect = (productId: number, color: string) => {
+        setSelectedColors((prev) => ({ ...prev, [productId]: color }));
     };
 
     const visibleProducts = enableSlider
@@ -189,7 +220,7 @@ const FlashSales = ({
                                     color: 'white',
                                 }}>
                                     <Typography variant="h5" fontWeight="600">
-                                        {String(currentTime.days).padStart(2, '0')}
+                                        {String(timer.days).padStart(2, '0')}
                                     </Typography>
                                 </TimerBox>
                             </Stack>
@@ -204,7 +235,7 @@ const FlashSales = ({
                                     color: 'white',
                                 }}>
                                     <Typography variant="h5" fontWeight="600">
-                                        {String(currentTime.hours).padStart(2, '0')}
+                                        {String(timer.hours).padStart(2, '0')}
                                     </Typography>
                                 </TimerBox>
                             </Stack>
@@ -219,7 +250,7 @@ const FlashSales = ({
                                     color: 'white',
                                 }}>
                                     <Typography variant="h5" fontWeight="600">
-                                        {String(currentTime.minutes).padStart(2, '0')}
+                                        {String(timer.minutes).padStart(2, '0')}
                                     </Typography>
                                 </TimerBox>
                             </Stack>
@@ -234,7 +265,7 @@ const FlashSales = ({
                                     color: 'white',
                                 }}>
                                     <Typography variant="h5" fontWeight="600">
-                                        {String(currentTime.seconds).padStart(2, '0')}
+                                        {String(timer.seconds).padStart(2, '0')}
                                     </Typography>
                                 </TimerBox>
                             </Stack>
@@ -343,10 +374,7 @@ const FlashSales = ({
                                                 height: 18,
                                                 borderRadius: '50%',
                                                 backgroundColor: color,
-                                                border:
-                                                    selectedColors[product.id] === color
-                                                        ? '2px solid black'
-                                                        : '2px solid transparent',
+                                                border: selectedColors[product.id] === color ? '2px solid black' : '2px solid transparent',
                                                 cursor: 'pointer',
                                             }}
                                             onClick={() => handleColorSelect(product.id, color)}

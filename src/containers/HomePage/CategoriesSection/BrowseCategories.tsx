@@ -18,7 +18,7 @@ const SectionDivider = styled(Divider)(({  }) => ({
     width: '100%'
 }));
 
-const CategoryBox = styled(Box)(({active }) => ({
+const CategoryBox = styled(Box)<{ active?: string }>(({active }) => ({
     width: '170px',
     height: '145px',
     display: 'flex',
@@ -59,7 +59,7 @@ const BrowseCategories = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const itemsPerView = 6;
 
-    const handleSlide = (direction) => {
+    const handleSlide = (direction: 'left' | 'right') => {
         if (direction === 'left') {
             setCurrentIndex(prev => Math.max(prev - 1, 0));
         } else {

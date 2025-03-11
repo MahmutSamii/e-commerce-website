@@ -243,7 +243,7 @@ const WishlistSection = () => {
                 viewBtnOpenColor={'#FFFFFF'}
                 viewBtnOpenText={'See All'}
                 viewBtnOpenTextColor={'black'}
-            />
+                title={""}/>
         </Container>
     );
 };

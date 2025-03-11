@@ -69,7 +69,6 @@ const SignUpPage = () => {
                             <TextField
                                 fullWidth
                                 variant="standard"
-                                color="text.secondary"
                                 type="password"
                                 placeholder="Password"
                                 InputProps={{
@@ -100,7 +99,7 @@ const SignUpPage = () => {
                             <Button
                                 fullWidth
                                 variant="outlined"
-                                startIcon={<Google size={20} />}
+                                startIcon={<Google sx={{ fontSize: 20 }} />}
                                 sx={{
                                     color: '#000',
                                     borderColor: '#E8E8E8',

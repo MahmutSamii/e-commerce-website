@@ -1,12 +1,12 @@
 'use client'
 import React, {useState} from 'react';
-import {AppBar, Toolbar, Typography, Box, Button, Select, MenuItem} from '@mui/material';
+import {AppBar, Toolbar, Typography, Box, Button, Select, MenuItem, SelectChangeEvent} from '@mui/material';
 
 function Header() {
 
-    const [language, setLanguage] = useState('English');
+    const [language, setLanguage] = useState<string>('English');
 
-    const handleLanguageChange = (event) => {
+    const handleLanguageChange = (event: SelectChangeEvent<string>) => {
         setLanguage(event.target.value);
     };
 

@@ -16,8 +16,15 @@ import {
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CloseIcon from '@mui/icons-material/Close';
 
-const CartItem = ({ image, name, price, quantity }) => {
-    const [qty, setQty] = useState(quantity);
+interface CartItemProps {
+    image: string;
+    name: string;
+    price: number;
+    quantity: number;
+}
+
+const CartItem: React.FC<CartItemProps> = ({ image, name, price, quantity }) => {
+    const [qty, setQty] = useState<number>(quantity);
 
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3, position: 'relative' }}>
@@ -48,7 +55,7 @@ const CartItem = ({ image, name, price, quantity }) => {
             <Box sx={{ width: 100, textAlign: 'right' }}>
                 <Select
                     value={qty}
-                    onChange={(e) => setQty(e.target.value)}
+                    onChange={(e) => setQty(Number(e.target.value))}
                     IconComponent={KeyboardArrowDownIcon}
                     sx={{
                         color:'black',

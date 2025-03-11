@@ -144,12 +144,12 @@ const Navbar = () => {
                         </SearchWrapper>
                         <Typography component={'div'}>
                             <Link href="/wish-list" passHref>
-                                <IconButton color="black">
+                                <IconButton sx={{color: "black"}}>
                                     <FavoriteIcon />
                                 </IconButton>
                             </Link>
                             <Link href="/checkout" passHref>
-                                <IconButton color="black">
+                                <IconButton sx={{color: "black"}}>
                                     <ShoppingCartIcon />
                                 </IconButton>
                             </Link>

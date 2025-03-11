@@ -1,8 +1,12 @@
 import React from 'react';
 import {Box, Button, Container, Typography} from "@mui/material";
 import Image from "next/image";
+interface PromoBannerProps {
+    label?: string;
+    value?: string;
+}
 
-const CountdownItem = ({value, label}) => (
+const CountdownItem: React.FC<PromoBannerProps>= ({value, label}) => (
     <Typography component={'div'} sx={{
         display: 'flex',
         alignItems: 'center',

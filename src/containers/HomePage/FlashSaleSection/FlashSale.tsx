@@ -101,7 +101,6 @@ function FlashSale() {
             products={products}
             currentTime={currentTime}
             discountBadgeColor={'#DB4444'}
-            showSlider
             viewBtnOpen={false}
             viewBtnOpenColor={'#DB4444'}
             viewBtnOpenText={'View All'}
