@@ -5,9 +5,9 @@ import {ThemeProvider} from '@mui/material/styles';
 import theme from "@/app/theme";
 import {CssBaseline} from "@mui/material";
 
-import Footer from '../../components/footer/Footer';
+import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/navbar';
-import Header from '../../components/Header/Header';
+import Header from '../../components/header/Header';
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
