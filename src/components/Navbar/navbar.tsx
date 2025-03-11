@@ -86,7 +86,13 @@ const Navbar = () => {
         setAnchorEl(null);
     };
 
-    const menuItems = ['Home', 'Contact', 'About', 'Sign Up'];
+    const menuItems = [
+        { label: 'Home', href: '/' },
+        { label: 'Contact', href: '/' },
+        { label: 'About', href: '/' },
+        { label: 'Sign Up', href: '/sign-up' },
+    ];
+
 
     return (
         <AppBar position="sticky" color="inherit" elevation={1}>
@@ -112,10 +118,10 @@ const Navbar = () => {
                             spacing={4}
                             sx={{ flexGrow: 0 }}
                         >
-                            {menuItems.map((item) => (
-                                <StyledLink href={`/${item.toLowerCase().replace(' ', '-')}`} key={item}>
+                            {menuItems.map(({ label, href }) => (
+                                <StyledLink href={href} key={label}>
                                     <Typography sx={{ fontWeight: 500 }}>
-                                        {item}
+                                        {label}
                                     </Typography>
                                 </StyledLink>
                             ))}
@@ -137,12 +143,16 @@ const Navbar = () => {
                             </SearchIconWrapper>
                         </SearchWrapper>
                         <Typography component={'div'}>
-                            <IconButton color="black">
-                                <FavoriteIcon />
-                            </IconButton>
-                            <IconButton color="black">
-                                <ShoppingCartIcon />
-                            </IconButton>
+                            <Link href="/wish-list" passHref>
+                                <IconButton color="black">
+                                    <FavoriteIcon />
+                                </IconButton>
+                            </Link>
+                            <Link href="/checkout" passHref>
+                                <IconButton color="black">
+                                    <ShoppingCartIcon />
+                                </IconButton>
+                            </Link>
                         </Typography>
                     </Typography>
 
@@ -163,14 +173,14 @@ const Navbar = () => {
                                     open={Boolean(anchorEl)}
                                     onClose={handleClose}
                                 >
-                                    {menuItems.map((item) => (
+                                    {menuItems.map(({ label, href }) => (
                                         <MenuItem
-                                            key={item}
+                                            key={label}
                                             onClick={handleClose}
                                             component={Link}
-                                            href={`/${item.toLowerCase().replace(' ', '-')}`}
+                                            href={href}
                                         >
-                                            {item}
+                                            {label}
                                         </MenuItem>
                                     ))}
                                 </Menu>
