@@ -14,7 +14,7 @@ import DeleteIcon from '@mui/icons-material/DeleteTwoTone';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FlashSales from "../../../components/FlashSales/FlashSales";
 
-const ProductCard = styled(Card)(({theme}) => ({
+const ProductCard = styled(Card)(({}) => ({
     maxWidth: 270,
     position: 'relative',
     borderRadius: '4px',
@@ -24,7 +24,7 @@ const ProductCard = styled(Card)(({theme}) => ({
     },
 }));
 
-const CartButton = styled(Button)(({theme}) => ({
+const CartButton = styled(Button)(({}) => ({
     position: 'absolute',
     bottom: 0,
     left: 0,

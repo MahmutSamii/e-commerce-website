@@ -10,7 +10,7 @@ import {
     FormControl,
     Button,
     Grid,
-    Stack, Container
+    Stack, Container,
 } from '@mui/material';
 
 const page = () => {
@@ -226,12 +226,12 @@ const page = () => {
                                             <Box sx={{display: 'flex', alignItems: 'center', justifyContent:'space-between', gap: 2}}>
                                                 Bank
                                                 <Box sx={{display: 'flex', gap: 1, ml: 2}}>
-                                                    <img
+                                                    <Image
                                                         src="/assets/png/visa.png"
                                                         alt="bKash"
                                                         style={{width: '50px', objectFit: 'contain'}}
                                                     />
-                                                    <img
+                                                    <Image
                                                         src="/assets/png/master-card.png"
                                                         alt="Visa"
                                                         style={{width: '50px', objectFit: 'contain'}}

@@ -4,7 +4,6 @@ import React from 'react';
 import {Box, Container, Typography, TextField, Button, Stack, Grid} from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import {Google} from "@mui/icons-material";
 
 const Login = () => {
     return (
