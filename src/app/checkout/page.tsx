@@ -12,6 +12,7 @@ import {
     Grid,
     Stack, Container,
 } from '@mui/material';
+import Image from 'next/image';
 
 const page = () => {
     return (
